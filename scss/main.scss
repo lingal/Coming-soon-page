@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+// Colors
+
+$desaturated-red: hsl(0, 36%, 70%);
+$soft-red: hsl(0, 93%, 68%);
+$dark-red: hsl(0, 6%, 24%);
+
+
+// Gradients
+$linear-light: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+$linear-dark: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+//Font
+
+$ff: "Josefin Sans", sans-serif;
+
+$fw-300: 300;
+$fw-400: 400;
+$fw-600: 600;
+
+$spacing: 10px;
+
+// Font-size
+
+$font-sm: 0.875rem;
+$font-med: 1rem;
+$font-xlg: 3.5rem;
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $ff;
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+img:not(.logo) {
+  display: block;
+  width: 100%;
+  // max-width: 100%;
+}
+
+
+.wrapper {
+  @media (min-width: 950px) {
+    margin: 0 auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .right {
+    display: none;
+    background-image: url(/images/hero-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    @media (min-width: 950px) {
+      display: block;
+    }
+  }
+}
+
+.left {
+  height: 100%;
+
+  @media (min-width: 950px) {
+    background: url(/images/bg-pattern-desktop.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom 25%;
+  }
+
+  .test {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 80px auto;
+
+    @media (max-height: 650px) {
+      gap: 2rem;
+    }
+    @media (min-width: 950px) {
+      grid-template-rows: 15vh calc(100vh - 15vh);
+      grid-template-columns: 30rem;
+      justify-content: center;
+    }
+    @media (min-width: 1800px) {
+      grid-template-columns: 50%;
+    }
+  }
+
+  header {
+    display: grid;
+    align-content: center;
+    padding-left: 2rem;
+    @media (min-width: 950px) {
+      padding-left: 0;
+      align-content:flex-end
+    }
+
+    .logo {
+      width: 6rem;
+      @media (min-width: 950px) {
+        width: 10rem;
+      }
+      @media (min-width: 1800px) {
+        width: 10vw;
+      }
+    }
+  }
+  .hero {
+    text-align: center;
+    @media (min-width: 950px) {
+      text-align: left;
+      align-self: center;
+    }
+
+    .mobile-img {
+      @media (min-width: 950px) {
+        display: none;
+      }
+    }
+    &-text {
+      padding: 4rem 1.5rem;
+      max-width: 45ch;
+      margin: 0 auto;
+      @media (min-width: 950px) {
+        padding: 0;
+        margin: 0;
+      }
+      @media (min-width: 1800px) {
+        font-size: 2vw;
+        max-width: unset;
+      }
+
+      h1 {
+        letter-spacing: $spacing;
+        text-transform: uppercase;
+        line-height: 1.2;
+        span {
+          font-weight: $fw-300;
+          color: $desaturated-red;
+        }
+
+        @media (min-width: 800px) {
+          font-size: $font-xlg;
+        }
+
+        @media (min-width: 1800px) {
+          font-size: 4vw;
+        }
+      }
+      p {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        color: $desaturated-red;
+        font-size: $font-sm;
+
+        @media (min-width: 800px) {
+          margin-top: 2rem;
+          margin-bottom: 2.5rem;
+          font-size: $font-med;
+          line-height: 1.6;
+        }
+        @media (min-width: 1800px) {
+          font-size: 1.5vw;
+        }
+      }
+
+      form {
+        .form-content {
+          position: relative;
+          input {   
+            width: 100%;
+            border-radius: 100px;
+            padding: 1.25rem 1rem;
+            color: hsla(0, 6%, 24%, 0.431);
+            border-color: hsla(0, 6%, 24%, 0.198);
+            @media (min-width: 800px) {
+              font-size: 1.2rem;
+            }
+
+          }
+          button {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            padding: 0.85rem 2.5rem;
+            border-radius: 50px;
+            background: $linear-dark;
+            border: transparent;
+            cursor: pointer;
+
+            &:hover::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background: $linear-light;
+              border-radius: 50px;
+              opacity: 0.6;
+              box-shadow: hsl(0, 80%, 86%) 0px 15px 25px, hsl(0, 74%, 74%) 0px 5px 10px;
+            }
+          }
+        }
+
+        .invalid {
+          background-image: url(/images/icon-error.svg);
+          background-repeat: no-repeat;
+          width: 1.5rem;
+          height: 1.5rem;
+          position: absolute;
+          top: 50%;
+          right: 100px;
+          transform: translateY(-50%);
+          display: none;
+        }
+        .email-status {
+          display: block;
+          margin-left: 1rem;
+          margin-top: 0.5rem;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
