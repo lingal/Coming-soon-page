@@ -61,20 +61,20 @@ img:not(.logo) {
   }
 }
 
-.left .test {
+.left-content {
   height: 100%;
   display: grid;
   grid-template-rows: 80px auto;
 }
 
 @media (max-height: 650px) {
-  .left .test {
+  .left-content {
     gap: 2rem;
   }
 }
 
 @media (min-width: 950px) {
-  .left .test {
+  .left-content {
     grid-template-rows: 15vh calc(100vh - 15vh);
     grid-template-columns: 30rem;
     justify-content: center;
@@ -82,7 +82,7 @@ img:not(.logo) {
 }
 
 @media (min-width: 1800px) {
-  .left .test {
+  .left-content {
     grid-template-columns: 50%;
   }
 }

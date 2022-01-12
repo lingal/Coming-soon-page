@@ -86,7 +86,7 @@ img:not(.logo) {
     background-position: bottom 25%;
   }
 
-  .test {
+  &-content {
     height: 100%;
     display: grid;
     grid-template-rows: 80px auto;
